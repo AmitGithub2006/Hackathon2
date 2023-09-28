@@ -2,18 +2,18 @@
 
 .container {
   position: relative;
-  width: 400px; /* Adjust the container size as needed */
-  height: 400px; /* Adjust the container size as needed */
+  width: 400px; 
+  height: 400px; 
 }
 
 .Card{
-  background: #d9a7c7;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #fffcdc, #dbb6ce); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #d9a7c7;
+  background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  
+  background: linear-gradient(to right, #fffcdc, #dbb6ce); 
  
 
 }
-/* Define the round image */
+
 .round-image {
   width: 100%;
   height: auto;
@@ -22,18 +22,17 @@
   z-index: 2;
 }
 
-/* Create the wave animation */
 .wave {
   position: absolute;
-  top: -10px; /* Adjust this value to position the wave around the image */
-  left: -10px; /* Adjust this value to position the wave around the image */
-  width: 460px; /* Adjust the width to make the wave larger */
-  height: 480px; /* Adjust the height to make the wave larger */
+  top: -10px; 
+  left: -10px; 
+  width: 460px; 
+  height: 480px; 
   border-radius: 50%;
   background: conic-gradient(from 0deg, transparent 30%, #9e34db 30%, transparent 70%, #34db66 70%);
   animation: wave-animation 3s linear infinite;
   z-index: 1;
-  pointer-events: none; /* Prevent the wave from blocking mouse events */
+  pointer-events: none; 
 }
 
 @keyframes wave-animation {
@@ -43,4 +42,15 @@
   100% {
       transform: rotate(360deg);
   }
+}
+
+
+.Btn{
+  text-decoration: none;
+  color:rgb(11, 11, 165)
+}
+
+.startBtn{
+  text-decoration: none;
+  
 }

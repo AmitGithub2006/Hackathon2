@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import {  Link } from 'react-router-dom';
+import '../App.css';
 
 const Projects =() =>{
   return (
@@ -30,8 +31,8 @@ const Projects =() =>{
               </CardActionArea>
               <CardActions>
                 <Button size="small" color="primary">
-                <Link to="/voice-recognition">
-                Share
+                <Link to="/voice-recognition" className='Btn'>
+                 Start
 
                 </Link>
                 
@@ -57,8 +58,8 @@ const Projects =() =>{
               </CardActionArea>
               <CardActions>
                 <Button size="small" color="primary">
-                <Link to="/grammer">
-                Share
+                <Link to="/grammer" className='Btn'>
+                Start
                 </Link>
                   
                 </Button>
@@ -82,8 +83,8 @@ const Projects =() =>{
               </CardActionArea>
               <CardActions>
                 <Button size="small" color="primary">
-                    <Link to="/translation">
-                        Share
+                    <Link to="/translation" className='Btn'>
+                        Start
                     </Link>
                 
                 </Button>

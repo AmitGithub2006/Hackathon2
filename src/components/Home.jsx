@@ -5,11 +5,12 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/system/Unstable_Grid';
 import img from './img/img.png';
 import {  Link } from 'react-router-dom';
+import '../App.css';
+
 function Home() {
   return (
     <>
-   
-        <Box component="main" sx ={{p:10}}>
+      <Box component="main" sx ={{p:10}}>
         <Toolbar />
           <Box sx={{ flexGrow: 1, }}>
             <Grid container spacing={2} >
@@ -22,25 +23,19 @@ function Home() {
                 <Typography variant='h4'> Boost Your Confidence </Typography>
                
               </Box>
-             
-              <Button  variant="outlined" sx ={{ mt : 3, mr:61, borderRadius:50,}}> 
-              <Link to="/projects">
+              <Link to="/projects" className='startBtn'>
+              <Button  variant="outlined" sx ={{ mt : 3, mr:46, borderRadius:50,height:60, width:200}}>              
                 Start
-              </Link>
               </Button>
-                
+              </Link>
               </Grid>
               
               <Grid xs={6}>
                 <Box className="container">
                 <Box className="wave"></Box>
                 <img src={img} alt="Round Image" className="round-image" />
-                
-
-                </Box>
-               
-    
-              </Grid>
+                </Box>               
+               </Grid>
             </Grid>
           </Box>
               
