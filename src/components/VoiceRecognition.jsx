@@ -10,12 +10,29 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 
 import "./style.css"
+import axios from 'axios';
 
 function VoiceRecognition() {
-  const [myText, setMyText] = useState('Hello');
+  // const [myText, setMyText] = useState('Hello');
   const [listening, setListening] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [feedbackMessage, setFeedbackMessage] = useState("");
+
+  const [myText, setMyText] = useState('');
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://random-word-api.herokuapp.com/word');
+      const newWord = response.data[0];
+     setMyText(newWord);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   const startListening = () => {
     const recognition = new window.SpeechRecognition();
