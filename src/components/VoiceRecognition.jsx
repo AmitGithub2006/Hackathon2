@@ -117,10 +117,13 @@ function VoiceRecognition() {
         </CardActions>
     </Card>
      
-     <Stack sx={{display:"flex", alignItems:"center" , mt:10}}>
-     <p className={feedbackClass}>{feedbackMessage}</p>
-    <Typography variant="body1">You Said: {transcript}</Typography>
-     </Stack>
+    <Card sx={{ maxWidth: 500, textAlign:"center" , mt:10, ml:75,backgroundColor:"rgb(241, 240, 232)"}}>
+      <Stack sx={{ mt:2, mb:2}}>
+      <p className={feedbackClass}>{feedbackMessage}</p>
+      <Typography variant="body1">Your Pronunciation: {transcript}</Typography>
+      </Stack>
+    </Card>
+     
    
 
   </>

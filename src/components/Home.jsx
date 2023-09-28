@@ -10,7 +10,7 @@ import '../App.css';
 function Home() {
   return (
     <>
-      <Box component="main" sx ={{p:10}}>
+        <Box component="main" sx ={{p:10}}>
         <Toolbar />
           <Box sx={{ flexGrow: 1, }}>
             <Grid container spacing={2} >
@@ -19,13 +19,13 @@ function Home() {
               <Box sx ={{mr:10,mt:25}}>
                 <Typography variant='h3'> Boost Your Confidence </Typography>
               </Box>
-              <Box sx ={{mr:27,}}>
-                <Typography variant='h4'> Boost Your Confidence </Typography>
+              <Box sx ={{mr:34,}}>
+                <Typography variant='h4'> In Learning English </Typography>
                
               </Box>
               <Link to="/projects" className='startBtn'>
               <Button  variant="outlined" sx ={{ mt : 3, mr:46, borderRadius:50,height:60, width:200}}>              
-                Start
+                Start            
               </Button>
               </Link>
               </Grid>
@@ -34,8 +34,8 @@ function Home() {
                 <Box className="container">
                 <Box className="wave"></Box>
                 <img src={img} alt="Round Image" className="round-image" />
-                </Box>               
-               </Grid>
+                </Box>
+              </Grid>
             </Grid>
           </Box>
               

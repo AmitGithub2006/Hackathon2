@@ -11,11 +11,10 @@ import '../App.css';
 
 const Projects =() =>{
   return (
-    <Box sx={{ flexGrow: 1 , ml:10, mt:20}}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        
-          <Grid item xs={2} sm={4} md={4}  sx={{mt:5}} >
-            <Card sx={{ maxWidth: 470 }} className='Card'>
+    <Box sx={{ flexGrow: 1, mt:25}}>
+    <Grid container spacing={{ xs: 2, md: 3 }}>
+    <Grid item xs={12} sm={6} md={4}>
+      <Card  className='Card'>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -40,9 +39,10 @@ const Projects =() =>{
                 </Button>
               </CardActions>
             </Card>
-          </Grid>
-          <Grid item xs={2} sm={4} md={4}  sx={{mt:5}}>
-          <Card sx={{ maxWidth: 470 }} className='Card'>
+       
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+      <Card  className='Card'>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -65,9 +65,9 @@ const Projects =() =>{
                 </Button>
               </CardActions>
             </Card>
-          </Grid>
-          <Grid item xs={2} sm={4} md={4} sx={{mt:5}} >
-              <Card sx={{ maxWidth: 470 }} className='Card'>
+      </Grid>
+      <Grid item xs={12}  sm ={6} md={4}>
+      <Card  className='Card'>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -90,9 +90,8 @@ const Projects =() =>{
                 </Button>
               </CardActions>
             </Card>
-          </Grid>
       </Grid>
-      
+    </Grid>
     </Box>
   );
 }
