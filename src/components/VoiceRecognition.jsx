@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Typography } from '@mui/material';
+import { Button, Typography, Box, Stack } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
+import "./style.css"
 
 function VoiceRecognition() {
+  const [myText, setMyText] = useState('Hello');
   const [listening, setListening] = useState(false);
   const [transcript, setTranscript] = useState('');
-  const expectedText = 'Hi'; 
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const startListening = () => {
     const recognition = new window.SpeechRecognition();
     recognition.lang = 'en-US';
     recognition.onstart = () => {
       setListening(true);
-      setTranscript('');
+      setTranscript("");
     };
 
     recognition.onresult = (event) => {
@@ -35,21 +40,23 @@ function VoiceRecognition() {
   };
 
   const checkMatching = (spokenText) => {
-    const isMatch = spokenText.toLowerCase() === expectedText.toLowerCase();
+    const isMatch = spokenText.toLowerCase() === myText.toLowerCase();
 
     if (isMatch) {
       // If the spoken text matches the expected text
+      setFeedbackMessage("Correct! You said the right word.");
       console.log('True', spokenText);
       // You can perform any actions or render specific content here
     } else {
       // If the spoken text does not match the expected text
+      setFeedbackMessage("Incorrect. Try again!");
       console.log('False:', spokenText);
       // You can perform different actions or render different content here
     }
   };
 
   const speakExpectedText = () => {
-    speak(expectedText);
+    speak(myText);
   };
 
   const speak = (text) => {
@@ -63,7 +70,10 @@ function VoiceRecognition() {
     }
   }, [listening]);
 
+  const feedbackClass = feedbackMessage.includes("Correct") ? "correct" : "incorrect";
+
   return (
+    <>
      <Card sx={{ maxWidth: 500, textAlign:"center" , mt:20, ml:75,backgroundColor:"rgb(241, 240, 232)"}}>
       <CardContent>
         <Typography gutterBottom variant="h4" component="div">
@@ -72,7 +82,7 @@ function VoiceRecognition() {
         <Grid container sx ={{mt:3}} >
         <Grid item sx={{ml:20,}}>
           <Typography variant="h4" color="text.secondary">
-            { expectedText} 
+            { myText} 
           </Typography>
         </Grid>
         <Grid item xs={3} >
@@ -107,9 +117,13 @@ function VoiceRecognition() {
         </CardActions>
     </Card>
      
-     
+     <Stack sx={{display:"flex", alignItems:"center" , mt:10}}>
+     <p className={feedbackClass}>{feedbackMessage}</p>
+    <Typography variant="body1">You Said: {transcript}</Typography>
+     </Stack>
+   
 
-  
+  </>
   );
 }
 
