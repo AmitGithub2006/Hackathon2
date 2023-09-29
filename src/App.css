@@ -1,0 +1,46 @@
+/* Define the container for the round image */
+
+.container {
+  position: relative;
+  width: 400px; /* Adjust the container size as needed */
+  height: 400px; /* Adjust the container size as needed */
+}
+
+.Card{
+  background: #d9a7c7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fffcdc, #dbb6ce); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ 
+
+}
+/* Define the round image */
+.round-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Create the wave animation */
+.wave {
+  position: absolute;
+  top: -10px; /* Adjust this value to position the wave around the image */
+  left: -10px; /* Adjust this value to position the wave around the image */
+  width: 460px; /* Adjust the width to make the wave larger */
+  height: 480px; /* Adjust the height to make the wave larger */
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 30%, #9e34db 30%, transparent 70%, #34db66 70%);
+  animation: wave-animation 3s linear infinite;
+  z-index: 1;
+  pointer-events: none; /* Prevent the wave from blocking mouse events */
+}
+
+@keyframes wave-animation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
