@@ -19,6 +19,8 @@ function VoiceRecognition() {
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const [myText, setMyText] = useState('');
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [points, setPoints] = useState(0);
 
   const fetchData = async () => {
     try {
@@ -33,6 +35,12 @@ function VoiceRecognition() {
   useEffect(() => {
     fetchData();
   }, [])
+
+  // Write a function that will add increment the points by 1 when the user pronounces the word correctly
+  const incrementPoints = () => {
+    setPoints(points + 1);
+  };
+
 
   const startListening = () => {
     const recognition = new window.SpeechRecognition();
@@ -56,17 +64,26 @@ function VoiceRecognition() {
     recognition.start();
   };
 
+  useEffect(() => {
+    if (isCorrect) {
+      incrementPoints();
+    }
+  }, [isCorrect]);
+
+
   const checkMatching = (spokenText) => {
     const isMatch = spokenText.toLowerCase() === myText.toLowerCase();
 
     if (isMatch) {
       // If the spoken text matches the expected text
       setFeedbackMessage("Correct! You said the right word.");
+      setIsCorrect(true);
       console.log('True', spokenText);
       // You can perform any actions or render specific content here
     } else {
       // If the spoken text does not match the expected text
       setFeedbackMessage("Incorrect. Try again!");
+      setIsCorrect(false);
       console.log('False:', spokenText);
       // You can perform different actions or render different content here
     }
@@ -86,6 +103,13 @@ function VoiceRecognition() {
       startListening();
     }
   }, [listening]);
+
+  const handleNextWord = () => {
+    fetchData();
+    setFeedbackMessage("");
+    setTranscript("");
+    setIsCorrect(false);
+  } 
 
   const feedbackClass = feedbackMessage.includes("Correct") ? "correct" : "incorrect";
 
@@ -125,10 +149,10 @@ function VoiceRecognition() {
         <CardActions>
           <Grid container>
             <Grid xs={6} sx={{textAlign:'left'}}>
-            <Button size="larg">Back</Button>
+            <Typography variant="h6">Score : {points}</Typography>
             </Grid>
             <Grid xs={6} sx={{textAlign:'right'}}>
-              <Button size="larg">Next</Button>
+              <Button size="larg" onClick={handleNextWord}>Next</Button>
             </Grid>
           </Grid>
         </CardActions>
